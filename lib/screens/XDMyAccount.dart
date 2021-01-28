@@ -1,13 +1,8 @@
-import 'package:easy_rails/alert.dart';
 import 'package:easy_rails/bottomBar.dart';
-import 'package:easy_rails/roundiconbutton.dart';
 import 'package:easy_rails/screens/XDUpdateProfile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:dotted_border/dotted_border.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 int adjustementLength = 250;
 int neutralTemp = 38;

@@ -1,19 +1,16 @@
 import 'dart:convert';
 import 'package:easy_rails/screens/XDSignIn.dart';
 import 'package:easy_rails/screens/qrweldreturn/newQRWeldReturn.dart';
-import 'file:///C:/Users/test/AndroidStudioProjects/easy_rails/lib/screens/artcweldreturn/artcWeldReturn.dart';
-import 'file:///C:/Users/test/AndroidStudioProjects/easy_rails/lib/screens/aurizonweldreturn/editWeldReturn.dart';
-import 'file:///C:/Users/test/AndroidStudioProjects/easy_rails/lib/screens/aurizonweldreturn/newWeldReturn.dart';
+import 'package:easy_rails/screens/artcweldreturn/artcWeldReturn.dart';
+import 'package:easy_rails/screens/aurizonweldreturn/editWeldReturn.dart';
+import 'package:easy_rails/screens/aurizonweldreturn/newWeldReturn.dart';
 import 'package:easy_rails/size_config.dart';
 import 'package:easy_rails/test.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 

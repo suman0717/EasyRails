@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:easy_rails/constants.dart';
-import 'file:///C:/Users/test/AndroidStudioProjects/easy_rails/lib/screens/aurizonweldreturn/editWeldReturn.dart';
+import 'package:easy_rails/screens/aurizonweldreturn/editWeldReturn.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 

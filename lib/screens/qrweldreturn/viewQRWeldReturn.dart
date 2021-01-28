@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:easy_rails/constants.dart';
-import 'package:easy_rails/customdropdown.dart';
 import 'package:easy_rails/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';

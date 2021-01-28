@@ -1,10 +1,7 @@
 import 'dart:convert';
 import 'package:easy_rails/constants.dart';
-import 'package:easy_rails/screens/qrweldreturn/viewQRWeldReturn.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
-
-import 'editQRWeldReturn.dart';
 import 'editunsyncedQRWeldReturn.dart';
 
 bool _waiting = false;

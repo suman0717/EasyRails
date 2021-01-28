@@ -2,7 +2,6 @@ import 'package:easy_rails/alert.dart';
 import 'package:easy_rails/linkOpener.dart';
 import 'package:easy_rails/screens/XDMyAccount.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class BottomBar extends StatefulWidget {
 

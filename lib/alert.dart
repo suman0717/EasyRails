@@ -2,7 +2,6 @@ import 'package:easy_rails/screens/qrweldreturn/newQRWeldReturn.dart';
 import 'package:easy_rails/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'screens/artcweldreturn/artcWeldReturn.dart';
 import 'screens/aurizonweldreturn/newWeldReturn.dart';
 

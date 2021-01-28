@@ -1,6 +1,5 @@
 import 'package:easy_rails/size_config.dart';
 import 'package:flutter/material.dart';
-
 import 'awrcreated.dart';
 import 'awrsubmitted.dart';
 import 'awrunsynced.dart';
