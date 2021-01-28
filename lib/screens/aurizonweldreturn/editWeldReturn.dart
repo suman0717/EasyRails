@@ -447,7 +447,7 @@ class _EditWeldReturnState extends State<EditWeldReturn> {
                                   {
                                     return 'Please provide kilometrage';
                                   }
-                              },
+                              },maxLength: 8,
                                   controller: ctrlkilometrage,
                                   keyboardType: TextInputType.number,
                                   textAlign: TextAlign.center,

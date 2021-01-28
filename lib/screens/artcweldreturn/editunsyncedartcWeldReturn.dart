@@ -318,6 +318,7 @@ class _EditUnsyncedARTCWeldReturnState extends State<EditUnsyncedARTCWeldReturn>
                           ),
                           Container(
                             child: TextFormField(controller: ctrlkilometer,
+                                maxLength: 8,
                                 keyboardType: TextInputType.number,
                                 textAlign: TextAlign.center,
                                 onChanged: (value) {

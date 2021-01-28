@@ -44,6 +44,7 @@ class _XDSignInState extends State<XDSignIn> {
       loggedinUserFName = jsonDecode(data)['First_Name'];
       loggedinUserSName = jsonDecode(data)['Surname'];
       aRTCLatestBatch = jsonDecode(data)['ARTCLatestBatch'];
+      qRLatestBatch = jsonDecode(data)['QRLatestBatch'];
       loggedinUserContractor = jsonDecode(data)['ContractorBuinessName'];
       KActiveRailOperator = jsonDecode(data)['Weld_Return'];
       kActiveLicenseNumber = jsonDecode(data)['ActiveLicenseNumber'];
@@ -64,19 +65,7 @@ class _XDSignInState extends State<XDSignIn> {
       sharedPreferences.setStringList('qrWeldTypeList', []);
       sharedPreferences.setStringList('qrHeating_TrolleyList', []);
       sharedPreferences.setString('aRTCLatestBatch', jsonDecode(data)['ARTCLatestBatch']);
-      print('printing avlues from constant');
-      print(loggedinUserName);
-      print(loggedinUserPassword);
-      print(loggedinUserID);
-      print(loggedinUserFName);
-      print(loggedinUserSName);
-      print(aRTCLatestBatch);
-      print(loggedinUserContractor);
-      print(KActiveRailOperator);
-      print(signature);
-      print(signature_Initials);
-      print(country);
-      print('printing Finished from constant');
+      sharedPreferences.setString('qRLatestBatch', jsonDecode(data)['QRLatestBatch']);
       await GetGenericDataForAurizon();
       await GetGenericDataForARTCWeldreturn();
       await GetGenericDataQR();

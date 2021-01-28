@@ -393,6 +393,7 @@ class _EditARTCWeldReturnState extends State<EditARTCWeldReturn> {
                           Container(
                             child: TextFormField(
                                 controller: ctrlkilometer,
+                                maxLength: 8,
                                 keyboardType: TextInputType.number,
                                 textAlign: TextAlign.center,
                                 onChanged: (value) {

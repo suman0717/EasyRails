@@ -379,6 +379,7 @@ String loggedinUserSName;
 String loggedinUserContractor;
 String loggedinUserID;
 String aRTCLatestBatch;
+String qRLatestBatch;
 String signature;
 String signature_Initials;
 String masked_mobile;

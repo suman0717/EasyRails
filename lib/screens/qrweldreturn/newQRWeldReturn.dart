@@ -200,6 +200,8 @@ class _NewQRWeldReturnState extends State<NewQRWeldReturn> {
                                   return 'Provide Section';
                                 }
                               },
+                              maxLength: 20,
+                              keyboardType: TextInputType.emailAddress,
                               textAlign: TextAlign.center,
                               onChanged: (value) {
                                 _section = value;
@@ -208,39 +210,6 @@ class _NewQRWeldReturnState extends State<NewQRWeldReturn> {
                                   fontFamily: 'Poppins', fontSize: 1.84 * SizeConfig.heightMultiplier),
                               decoration: kTextFieldDecorationNoback.copyWith(
                                 hintText: '',contentPadding: EdgeInsets.symmetric(vertical: 1.5 * SizeConfig.heightMultiplier, horizontal: 20.0),)
-                          ),
-
-                          //Weld Batch Number
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 8.0, top: 20),
-                            child: Text(
-                              'Weld Batch Number',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 1.7 * SizeConfig.heightMultiplier,
-                                color: const Color(0xffa1a1a1),
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          Container(
-                            child: TextFormField(
-                                validator: (String value) {
-                                  if (value.isEmpty) {
-                                    return 'Provide Batch Number';
-                                  }
-                                },
-                                controller: ctrlweldBatchNumber,maxLength: 6,
-                                textAlign: TextAlign.center,
-                                onChanged: (value) {
-                                  _weldBatchNumber = value;
-                                },
-                                style: TextStyle(
-                                    fontFamily: 'Poppins', fontSize: 1.84 * SizeConfig.heightMultiplier),
-                                decoration: kTextFieldDecorationNoback.copyWith(
-                                  hintText: '',contentPadding: EdgeInsets.symmetric(vertical: 1.5 * SizeConfig.heightMultiplier, horizontal: 20.0),)
-                            ),
-                            width: 68.2 * SizeConfig.widthMultiplier,
                           ),
 
                           //Kilometer
@@ -263,6 +232,7 @@ class _NewQRWeldReturnState extends State<NewQRWeldReturn> {
                                 return 'Please provide kilometer';
                               }
                             },
+                                maxLength: 8,
                                 keyboardType: TextInputType.number,
                                 textAlign: TextAlign.center,
                                 onChanged: (value) {
@@ -402,6 +372,126 @@ class _NewQRWeldReturnState extends State<NewQRWeldReturn> {
                             width: 68.2 * SizeConfig.widthMultiplier,
                           ),
 
+                          //Weld Type
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 8.0,top: 20),
+                            child: Text(
+                              'Weld Type',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 1.7 * SizeConfig.heightMultiplier,
+                                color: const Color(0xffa1a1a1),
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                          DropDownField(
+                              onValueChanged: (dynamic s) {
+                                print(s);
+                                setState(() {
+                                  _weldType = s;
+                                });
+                              },
+                              textStyle: TextStyle(
+                                  height: 0.9,
+                                  fontFamily: 'Poppins',
+                                  fontSize:
+                                  1.84 * SizeConfig.heightMultiplier),
+                              value: _weldType,
+                              required: false,
+                              hintText: 'Choose a Weld Type',
+                              hintStyle: TextStyle(
+                                  height: 1.0,
+                                  fontFamily: 'Poppins',
+                                  fontSize:
+                                  1.84 * SizeConfig.heightMultiplier),
+                              items: qrWeldTypeList,
+                              strict: true,
+                              setter: (dynamic newValue) {
+                                print('Setter');
+                                _weldType = newValue;
+                              }),
+
+                          //Weld Reason
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 8.0,top: 20),
+                            child: Text(
+                              'Weld Reason',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 1.7 * SizeConfig.heightMultiplier,
+                                color: const Color(0xffa1a1a1),
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                          DropDownField(
+                              onValueChanged: (dynamic s) {
+                                print(s);
+                                setState(() {
+                                  _reasonForWeldFinal = s;
+                                });
+                              },
+                              textStyle: TextStyle(
+                                  height: 0.9,
+                                  fontFamily: 'Poppins',
+                                  fontSize:
+                                  1.84 * SizeConfig.heightMultiplier),
+                              value: _reasonForWeldFinal,
+                              required: false,
+                              hintText: 'Reason For Weld',
+                              hintStyle: TextStyle(
+                                  height: 1.0,
+                                  fontFamily: 'Poppins',
+                                  fontSize:
+                                  1.84 * SizeConfig.heightMultiplier),
+                              items: qrWeldReasonList,
+                              strict: true,
+                              setter: (dynamic newValue) {
+                                print('Setter');
+                                _reasonForWeldFinal = newValue;
+                              }),
+
+                          //Heating Trolley
+                          Padding(
+                            padding: EdgeInsets.only(top: 20),
+                            child: Text(
+                              'Heating Trolley',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 1.7 * SizeConfig.heightMultiplier,
+                                color: const Color(0xffa1a1a1),
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                          DropDownField(
+                              onValueChanged: (dynamic s) {
+                                print(s);
+                                setState(() {
+                                  _heatingTrolley = s;
+                                });
+                              },
+                              textStyle: TextStyle(
+                                  height: 0.9,
+                                  fontFamily: 'Poppins',
+                                  fontSize:
+                                  1.84 * SizeConfig.heightMultiplier),
+                              value: _heatingTrolley,
+                              required: false,
+                              hintText: 'Heating Trolley',
+                              hintStyle: TextStyle(
+                                  height: 1.0,
+                                  fontFamily: 'Poppins',
+                                  fontSize:
+                                  1.84 * SizeConfig.heightMultiplier),
+                              items: qrHeating_TrolleyList,
+                              strict: true,
+                              setter: (dynamic newValue) {
+                                print('Setter');
+                                _heatingTrolley = newValue;
+                              }),
+
                           //Rail Temp
                           Padding(
                             padding: EdgeInsets.only(bottom: 8.0, top: 20),
@@ -487,303 +577,6 @@ class _NewQRWeldReturnState extends State<NewQRWeldReturn> {
                             },
                           ),
 
-                          //Weld Type
-                          Padding(
-                            padding: EdgeInsets.only(top: 20),
-                            child: Text(
-                              'Weld Type',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 1.7 * SizeConfig.heightMultiplier,
-                                color: const Color(0xffa1a1a1),
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          DropDownField(
-                              onValueChanged: (dynamic s) {
-                                print(s);
-                                setState(() {
-                                  _weldType = s;
-                                });
-                              },
-                              textStyle: TextStyle(
-                                  height: 0.9,
-                                  fontFamily: 'Poppins',
-                                  fontSize:
-                                  1.84 * SizeConfig.heightMultiplier),
-                              value: _weldType,
-                              required: false,
-                              hintText: 'Choose a Weld Type',
-                              hintStyle: TextStyle(
-                                  height: 1.0,
-                                  fontFamily: 'Poppins',
-                                  fontSize:
-                                  1.84 * SizeConfig.heightMultiplier),
-                              items: qrWeldTypeList,
-                              strict: true,
-                              setter: (dynamic newValue) {
-                                print('Setter');
-                                _weldType = newValue;
-                              }),
-
-                          //KG
-                          Padding(
-                            padding: EdgeInsets.only(top: 20),
-                            child: Text(
-                              'KG',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 1.7 * SizeConfig.heightMultiplier,
-                                color: const Color(0xffa1a1a1),
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          Container(
-                            child: DropDownField(
-                              onValueChanged: (dynamic s) async {
-                                _railKg = s;
-                              },
-                              keyboardType: TextInputType.number,
-                              textStyle: TextStyle(
-                                  height: 0.9,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 1.84 *
-                                      SizeConfig.heightMultiplier),
-                              value: _railKg,
-                              required: false,
-                              hintText: 'Provide Kg',
-                              hintStyle: TextStyle(
-                                  height: 1.0,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 1.84 *
-                                      SizeConfig.heightMultiplier),
-                              items: [
-                                '47/50',
-                                '47/53',
-                                '50/60',
-                                '47/53',
-                                '53/60',
-                                '47',
-                                '53',
-                                '60',
-                                '50',
-                                '53/60',
-                                '41',
-                                '41/47',
-                              ].map(
-                                    (String dropdownitem) {
-                                  return dropdownitem;
-                                },
-                              ).toList(),
-                              strict: false,
-                              setter: (dynamic newValue) {
-                                print('Setter');
-                                _railKg = newValue;
-                              },
-                            ),
-                          ),
-
-                          //Rail Type
-                          Padding(
-                            padding: EdgeInsets.only(top: 20),
-                            child: Text(
-                              'Rail Type',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 1.7 * SizeConfig.heightMultiplier,
-                                color: const Color(0xffa1a1a1),
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          Container(
-                            child: DropDownField(
-                              onValueChanged: (dynamic s) async {
-                                _railType = s;
-                              },
-                              keyboardType: TextInputType.number,
-                              textStyle: TextStyle(
-                                  height: 0.9,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 1.84 *
-                                      SizeConfig.heightMultiplier),
-                              value: _railType,
-                              required: false,
-                              hintText: 'Provide Rail Type',
-                              hintStyle: TextStyle(
-                                  height: 1.0,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 1.84 *
-                                      SizeConfig.heightMultiplier),
-                              items: [
-                                'SC',
-                                'HH',
-                              ].map(
-                                    (String dropdownitem) {
-                                  return dropdownitem;
-                                },
-                              ).toList(),
-                              strict: false,
-                              setter: (dynamic newValue) {
-                                print('Setter');
-                                _railType = newValue;
-                              },
-                            ),
-                          ),
-
-                          //Weld Reason
-                          Padding(
-                            padding: EdgeInsets.only(top: 20),
-                            child: Text(
-                              'Weld Reason',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 1.7 * SizeConfig.heightMultiplier,
-                                color: const Color(0xffa1a1a1),
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          DropDownField(
-                              onValueChanged: (dynamic s) {
-                                print(s);
-                                setState(() {
-                                  _reasonForWeldFinal = s;
-                                });
-                              },
-                              textStyle: TextStyle(
-                                  height: 0.9,
-                                  fontFamily: 'Poppins',
-                                  fontSize:
-                                  1.84 * SizeConfig.heightMultiplier),
-                              value: _reasonForWeldFinal,
-                              required: false,
-                              hintText: 'Reason For Weld',
-                              hintStyle: TextStyle(
-                                  height: 1.0,
-                                  fontFamily: 'Poppins',
-                                  fontSize:
-                                  1.84 * SizeConfig.heightMultiplier),
-                              items: qrWeldReasonList,
-                              strict: true,
-                              setter: (dynamic newValue) {
-                                print('Setter');
-                                _reasonForWeldFinal = newValue;
-                              }),
-
-                          //Heating Trolley
-                          Padding(
-                            padding: EdgeInsets.only(top: 20),
-                            child: Text(
-                              'Heating Trolley',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 1.7 * SizeConfig.heightMultiplier,
-                                color: const Color(0xffa1a1a1),
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          DropDownField(
-                              onValueChanged: (dynamic s) {
-                                print(s);
-                                setState(() {
-                                  _heatingTrolley = s;
-                                });
-                              },
-                              textStyle: TextStyle(
-                                  height: 0.9,
-                                  fontFamily: 'Poppins',
-                                  fontSize:
-                                  1.84 * SizeConfig.heightMultiplier),
-                              value: _heatingTrolley,
-                              required: false,
-                              hintText: 'Heating Trolley',
-                              hintStyle: TextStyle(
-                                  height: 1.0,
-                                  fontFamily: 'Poppins',
-                                  fontSize:
-                                  1.84 * SizeConfig.heightMultiplier),
-                              items: qrHeating_TrolleyList,
-                              strict: true,
-                              setter: (dynamic newValue) {
-                                print('Setter');
-                                _heatingTrolley = newValue;
-                              }),
-
-                          //Was Rail Adjusted
-                          Padding(
-                            padding: EdgeInsets.only(top: 20),
-                            child: Text(
-                              'Was Rail Adjusted',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 1.7 * SizeConfig.heightMultiplier,
-                                color: const Color(0xffa1a1a1),
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          DropDownField(
-                            onValueChanged: (dynamic s) async {
-                              _wasRailAdjusted = s;
-                            },
-                            textStyle: TextStyle(
-                                height: 0.9,
-                                fontFamily: 'Poppins',
-                                fontSize: 1.84 *
-                                    SizeConfig.heightMultiplier),
-                            value: _wasRailAdjusted,
-                            required: false,
-                            hintText: 'Provide Temperature',
-                            hintStyle: TextStyle(
-                                height: 1.0,
-                                fontFamily: 'Poppins',
-                                fontSize: 1.84 *
-                                    SizeConfig.heightMultiplier),
-                            items: [
-                              'Yes',
-                              'No',
-                            ].map(
-                                  (String dropdownitem) {
-                                return dropdownitem;
-                              },
-                            ).toList(),
-                            strict: false,
-                            setter: (dynamic newValue) {
-                              print('Setter');
-                              _wasRailAdjusted = newValue;
-                            },
-                          ),
-
-                          //Weld Kit Details Date
-                          Padding(
-                            padding: EdgeInsets.only(top: 20),
-                            child: Text(
-                              'Weld Kit Details Date',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 1.7 * SizeConfig.heightMultiplier,
-                                color: const Color(0xffa1a1a1),
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          Container(
-                            // height: 5.13 * SizeConfig.heightMultiplier,
-                            width: 68.2 * SizeConfig.widthMultiplier,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(3.95 * SizeConfig.heightMultiplier),
-                              border: Border.all(color: Color(0xffe8e8e8),width: 1.0),
-                            ),
-                            child: ListTile(trailing: IconButton(icon: Icon(Icons.date_range_outlined), onPressed: (){pickWeldKitDetailsDate();}),
-                              title: Center(child: Text('${_weldKitDetailsDate.day}-${_weldKitDetailsDate.month}-${_weldKitDetailsDate.year}')),
-
-                            ),
-                          ),
-
                           //Steel Added/Removed
                           Padding(
                             padding: EdgeInsets.only(bottom: 8.0, top: 20),
@@ -797,7 +590,6 @@ class _NewQRWeldReturnState extends State<NewQRWeldReturn> {
                               textAlign: TextAlign.left,
                             ),
                           ),
-
                           Row(
                             children: [
                               Expanded(
@@ -884,11 +676,10 @@ class _NewQRWeldReturnState extends State<NewQRWeldReturn> {
                             ],
                           ),
 
-                          // Ground By
+                          //Was Rail Adjusted
                           Padding(
-                            padding: EdgeInsets.only(bottom: 1.05 * SizeConfig.heightMultiplier, top: 2.63 * SizeConfig.heightMultiplier),
-                            child: Text(
-                              'Ground By',
+                            padding: EdgeInsets.only(bottom: 8.0,top: 20),                            child: Text(
+                              'Was Rail Adjusted',
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 1.7 * SizeConfig.heightMultiplier,
@@ -897,188 +688,58 @@ class _NewQRWeldReturnState extends State<NewQRWeldReturn> {
                               textAlign: TextAlign.left,
                             ),
                           ),
-                          Container(
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Checkbox(value: _groundByMe,
-                                        activeColor: kShadeColor1,
-                                        onChanged: (bool newvalue){
-                                          if(newvalue==true){
-                                            setState(() {
-                                              print(newvalue);
-                                              ctrlGroundByManual.text='Me';
-                                              _weldGroundByManual='Me';
-                                              ctrlGroundByManualLicence.text=kActiveLicenseNumber;
-                                              _weldGroundByManualLicence=kActiveLicenseNumber;
-                                              _groundByMe = newvalue;
-                                              _groundByManualEnterName = !newvalue;
-                                              _groundByLeaveBlank = !newvalue;
-                                            });
-                                          }
-                                        }),
-                                    Text('Me'),
-                                    Checkbox(value: _groundByManualEnterName,
-                                      activeColor: kShadeColor1,
-                                      onChanged: (bool newvalue){
-                                        if(newvalue==true){
-                                          setState(() {
-                                            print(newvalue);
-                                            ctrlGroundByManual.text='';
-                                            _weldGroundByManual='';
-                                            _groundByManualEnterName = newvalue;
-                                            ctrlGroundByManualLicence.text='';
-                                            _groundByMe = !newvalue;
-                                            _groundByLeaveBlank = !newvalue;
-                                          });
-                                        }
-                                      },),
-                                    Text('Manually Enter Name'),
-                                  ],
-
-                                ),
-                                Row(
-                                  children: [
-                                    Checkbox(value: _groundByLeaveBlank,
-                                        activeColor: kShadeColor1,
-                                        onChanged: (bool newvalue){
-                                          if(newvalue==true){
-                                            setState(() {
-                                              print(newvalue);
-                                              ctrlGroundByManual.text='';
-                                              _weldGroundByManual='Leave Blank';
-                                              _weldGroundByManualLicence='N/A';
-                                              _groundByLeaveBlank = newvalue;
-                                              _groundByManualEnterName = !newvalue;
-                                              _groundByMe = !newvalue;
-                                            });
-                                          }
-                                        }),
-                                    Text('Leave Blank'),
-
-                                  ],
-                                ),
-                                Container(
-                                  child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Visibility(visible: _groundByManualEnterName,
-                                        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Padding(
-                                            padding: EdgeInsets.only(bottom: 1.05 * SizeConfig.heightMultiplier, top: 2.63 * SizeConfig.heightMultiplier),
-                                            child: Text(
-                                              'Name',
-                                              style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 1.7 * SizeConfig.heightMultiplier,
-                                                color: const Color(0xffa1a1a1),
-                                              ),
-                                              textAlign: TextAlign.left,
-                                            ),
-                                          ),
-                                            TextFormField(
-                                            //     validator: (String value){
-                                            //   if(_groundByManualEnterName==true && (_weldGrinderManual == null ||_weldGrinderManual.contains('N/A'))){
-                                            //     return 'Provide Ground By';
-                                            //   }
-                                            // },
-                                              maxLength: 30,
-                                                controller: ctrlGroundByManual,
-                                                textAlign: TextAlign.center,
-                                                onChanged: (value) {
-                                                  _weldGroundByManual = value;
-                                                  print(_weldGroundByManual);
-                                                },
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins', fontSize: 1.84 * SizeConfig.heightMultiplier),
-                                                decoration: kTextFieldDecorationNoback.copyWith(
-                                                  hintText: '',contentPadding: EdgeInsets.symmetric(vertical: 1.5 * SizeConfig.heightMultiplier, horizontal: 20.0),)
-                                            ),
-
-                                          ],
-                                        ),
-                                      ),
-                                      Visibility(visible: !_groundByLeaveBlank,
-                                          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsets.only(bottom: 1.05 * SizeConfig.heightMultiplier, top: 2.63 * SizeConfig.heightMultiplier),
-                                                child: Text(
-                                                  'Licence Number',
-                                                  style: TextStyle(
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 1.7 * SizeConfig.heightMultiplier,
-                                                    color: const Color(0xffa1a1a1),
-                                                  ),
-                                                  textAlign: TextAlign.left,
-                                                ),
-                                              ),
-                                              TextFormField(maxLength: 5,readOnly: _groundByMe,
-                                                  validator: (String value){
-                                                    if(_groundByMe == false && _weldGroundByManualLicence == null){
-                                                      return 'Provide Licence Number';
-                                                    }
-                                                  },
-                                                  controller: ctrlGroundByManualLicence,
-                                                  textAlign: TextAlign.center,
-                                                  onChanged: (value) {
-                                                    _weldGroundByManualLicence = value;
-                                                  },
-                                                  style: TextStyle(
-                                                      fontFamily: 'Poppins', fontSize: 1.84 * SizeConfig.heightMultiplier),
-                                                  decoration: kTextFieldDecorationNoback.copyWith(
-                                                    hintText: '',contentPadding: EdgeInsets.symmetric(vertical: 1.5 * SizeConfig.heightMultiplier, horizontal: 20.0),)
-                                              ),
-                                              Visibility(visible: _groundByManualEnterName,
-                                                  child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                                                    children: [
-                                                      Padding(
-                                                        padding: EdgeInsets.only(bottom: 1.05 * SizeConfig.heightMultiplier, top: 2.63 * SizeConfig.heightMultiplier),
-                                                        child: Text(
-                                                          'Yearly Weld Count',
-                                                          style: TextStyle(
-                                                            fontFamily: 'Poppins',
-                                                            fontSize: 1.7 * SizeConfig.heightMultiplier,
-                                                            color: const Color(0xffa1a1a1),
-                                                          ),
-                                                          textAlign: TextAlign.left,
-                                                        ),
-                                                      ),
-                                                      TextFormField(maxLength: 5,
-                                                          // validator: (String value){
-                                                          //   if(_groundByMe == false && _weldGroundByManualLicence == null){
-                                                          //     return 'Provide Licence Number';
-                                                          //   }
-                                                          // },
-                                                          keyboardType: TextInputType.number,
-                                                          textAlign: TextAlign.center,
-                                                          onChanged: (value) {
-                                                            _weldGroundManualCount = value;
-                                                          },
-                                                          style: TextStyle(
-                                                              fontFamily: 'Poppins', fontSize: 1.84 * SizeConfig.heightMultiplier),
-                                                          decoration: kTextFieldDecorationNoback.copyWith(
-                                                            hintText: '',contentPadding: EdgeInsets.symmetric(vertical: 1.5 * SizeConfig.heightMultiplier, horizontal: 20.0),)
-                                                      ),
-
-                                                    ],
-                                                  ))
-                                            ],
-                                          ))
-                                     ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            width: 68.2 * SizeConfig.widthMultiplier,
+                          DropDownField(
+                            onValueChanged: (dynamic s) async {
+                              _wasRailAdjusted = s;
+                            },
+                            textStyle: TextStyle(
+                                height: 0.9,
+                                fontFamily: 'Poppins',
+                                fontSize: 1.84 *
+                                    SizeConfig.heightMultiplier),
+                            value: _wasRailAdjusted,
+                            required: false,
+                            hintText: 'Provide Temperature',
+                            hintStyle: TextStyle(
+                                height: 1.0,
+                                fontFamily: 'Poppins',
+                                fontSize: 1.84 *
+                                    SizeConfig.heightMultiplier),
+                            items: [
+                              'Yes',
+                              'No',
+                            ].map(
+                                  (String dropdownitem) {
+                                return dropdownitem;
+                              },
+                            ).toList(),
+                            strict: false,
+                            setter: (dynamic newValue) {
+                              print('Setter');
+                              _wasRailAdjusted = newValue;
+                            },
                           ),
 
-                          //Comments
                           Padding(
                             padding: EdgeInsets.only(bottom: 8.0, top: 20),
                             child: Text(
-                              'Comment',
+                              'Weld Kit Details',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 2.36 * SizeConfig.heightMultiplier,
+                                color: const Color(0xff363636),
+                                fontWeight: FontWeight.w500,
+                                height: 0.2 * SizeConfig.heightMultiplier,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+
+                          //Weld Kit Details Date
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 8.0,top: 20),
+                            child: Text(
+                              'Weld Kit Details Date',
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 1.7 * SizeConfig.heightMultiplier,
@@ -1088,10 +749,43 @@ class _NewQRWeldReturnState extends State<NewQRWeldReturn> {
                             ),
                           ),
                           Container(
-                            child: TextFormField(maxLength: 100,maxLines: 5,
+                            // height: 5.13 * SizeConfig.heightMultiplier,
+                            width: 68.2 * SizeConfig.widthMultiplier,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(3.95 * SizeConfig.heightMultiplier),
+                              border: Border.all(color: Color(0xffe8e8e8),width: 1.0),
+                            ),
+                            child: ListTile(trailing: IconButton(icon: Icon(Icons.date_range_outlined), onPressed: (){pickWeldKitDetailsDate();}),
+                              title: Center(child: Text('${_weldKitDetailsDate.day}-${_weldKitDetailsDate.month}-${_weldKitDetailsDate.year}')),
+
+                            ),
+                          ),
+
+                          //Weld Batch Number
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 8.0, top: 20),
+                            child: Text(
+                              'Weld Batch Number',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 1.7 * SizeConfig.heightMultiplier,
+                                color: const Color(0xffa1a1a1),
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                          Container(
+                            child: TextFormField(
+                                validator: (String value) {
+                                  if (value.isEmpty) {
+                                    return 'Provide Batch Number';
+                                  }
+                                },
+                                keyboardType: TextInputType.emailAddress,
+                                controller: ctrlweldBatchNumber,maxLength: 6,
                                 textAlign: TextAlign.center,
                                 onChanged: (value) {
-                                  _comments = value;
+                                  _weldBatchNumber = value;
                                 },
                                 style: TextStyle(
                                     fontFamily: 'Poppins', fontSize: 1.84 * SizeConfig.heightMultiplier),
@@ -1099,6 +793,143 @@ class _NewQRWeldReturnState extends State<NewQRWeldReturn> {
                                   hintText: '',contentPadding: EdgeInsets.symmetric(vertical: 1.5 * SizeConfig.heightMultiplier, horizontal: 20.0),)
                             ),
                             width: 68.2 * SizeConfig.widthMultiplier,
+                          ),
+
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 8.0, top: 20),
+                            child: Text(
+                              'Rail',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 2.36 * SizeConfig.heightMultiplier,
+                                color: const Color(0xff363636),
+                                fontWeight: FontWeight.w500,
+                                height: 0.2 * SizeConfig.heightMultiplier,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+
+                          //KG
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 8.0,top: 20),
+                            child: Text(
+                              'KG',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 1.7 * SizeConfig.heightMultiplier,
+                                color: const Color(0xffa1a1a1),
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                          Container(
+                            child: DropDownField(
+                              onValueChanged: (dynamic s) async {
+                                _railKg = s;
+                              },
+                              keyboardType: TextInputType.number,
+                              textStyle: TextStyle(
+                                  height: 0.9,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 1.84 *
+                                      SizeConfig.heightMultiplier),
+                              value: _railKg,
+                              required: false,
+                              hintText: 'Provide Kg',
+                              hintStyle: TextStyle(
+                                  height: 1.0,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 1.84 *
+                                      SizeConfig.heightMultiplier),
+                              items: [
+                                '47/50',
+                                '47/53',
+                                '50/60',
+                                '47/53',
+                                '53/60',
+                                '47',
+                                '53',
+                                '60',
+                                '50',
+                                '53/60',
+                                '41',
+                                '41/47',
+                              ].map(
+                                    (String dropdownitem) {
+                                  return dropdownitem;
+                                },
+                              ).toList(),
+                              strict: false,
+                              setter: (dynamic newValue) {
+                                print('Setter');
+                                _railKg = newValue;
+                              },
+                            ),
+                          ),
+
+                          //Rail Type
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 8.0,top: 20),
+                            child: Text(
+                              'Rail Type',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 1.7 * SizeConfig.heightMultiplier,
+                                color: const Color(0xffa1a1a1),
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                          Container(
+                            child: DropDownField(
+                              onValueChanged: (dynamic s) async {
+                                _railType = s;
+                              },
+                              keyboardType: TextInputType.number,
+                              textStyle: TextStyle(
+                                  height: 0.9,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 1.84 *
+                                      SizeConfig.heightMultiplier),
+                              value: _railType,
+                              required: false,
+                              hintText: 'Provide Rail Type',
+                              hintStyle: TextStyle(
+                                  height: 1.0,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 1.84 *
+                                      SizeConfig.heightMultiplier),
+                              items: [
+                                'SC',
+                                'HH',
+                              ].map(
+                                    (String dropdownitem) {
+                                  return dropdownitem;
+                                },
+                              ).toList(),
+                              strict: false,
+                              setter: (dynamic newValue) {
+                                print('Setter');
+                                _railType = newValue;
+                              },
+                            ),
+                          ),
+
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 8.0, top: 20),
+                            child: Text(
+                              'Final Ground'
+                                  '',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 2.36 * SizeConfig.heightMultiplier,
+                                color: const Color(0xff363636),
+                                fontWeight: FontWeight.w500,
+                                height: 0.2 * SizeConfig.heightMultiplier,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
                           ),
 
                           //Top Peaked
@@ -1343,6 +1174,223 @@ class _NewQRWeldReturnState extends State<NewQRWeldReturn> {
                             ),
                           ],),
 
+                          // Ground By
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 1.05 * SizeConfig.heightMultiplier, top: 2.63 * SizeConfig.heightMultiplier),
+                            child: Text(
+                              'Ground By',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 1.7 * SizeConfig.heightMultiplier,
+                                color: const Color(0xffa1a1a1),
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                          Container(
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Checkbox(value: _groundByMe,
+                                        activeColor: kShadeColor1,
+                                        onChanged: (bool newvalue){
+                                          if(newvalue==true){
+                                            setState(() {
+                                              print(newvalue);
+                                              ctrlGroundByManual.text='Me';
+                                              _weldGroundByManual='Me';
+                                              ctrlGroundByManualLicence.text=kActiveLicenseNumber;
+                                              _weldGroundByManualLicence=kActiveLicenseNumber;
+                                              _groundByMe = newvalue;
+                                              _groundByManualEnterName = !newvalue;
+                                              _groundByLeaveBlank = !newvalue;
+                                            });
+                                          }
+                                        }),
+                                    Text('Me'),
+                                    Checkbox(value: _groundByManualEnterName,
+                                      activeColor: kShadeColor1,
+                                      onChanged: (bool newvalue){
+                                        if(newvalue==true){
+                                          setState(() {
+                                            print(newvalue);
+                                            ctrlGroundByManual.text='';
+                                            _weldGroundByManual='';
+                                            _groundByManualEnterName = newvalue;
+                                            ctrlGroundByManualLicence.text='';
+                                            _groundByMe = !newvalue;
+                                            _groundByLeaveBlank = !newvalue;
+                                          });
+                                        }
+                                      },),
+                                    Text('Manually Enter Name'),
+                                  ],
+
+                                ),
+                                Row(
+                                  children: [
+                                    Checkbox(value: _groundByLeaveBlank,
+                                        activeColor: kShadeColor1,
+                                        onChanged: (bool newvalue){
+                                          if(newvalue==true){
+                                            setState(() {
+                                              print(newvalue);
+                                              ctrlGroundByManual.text='';
+                                              _weldGroundByManual='Leave Blank';
+                                              _weldGroundByManualLicence='N/A';
+                                              _groundByLeaveBlank = newvalue;
+                                              _groundByManualEnterName = !newvalue;
+                                              _groundByMe = !newvalue;
+                                            });
+                                          }
+                                        }),
+                                    Text('Leave Blank'),
+
+                                  ],
+                                ),
+                                Container(
+                                  child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Visibility(visible: _groundByManualEnterName,
+                                        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                            padding: EdgeInsets.only(bottom: 1.05 * SizeConfig.heightMultiplier, top: 2.63 * SizeConfig.heightMultiplier),
+                                            child: Text(
+                                              'Name',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 1.7 * SizeConfig.heightMultiplier,
+                                                color: const Color(0xffa1a1a1),
+                                              ),
+                                              textAlign: TextAlign.left,
+                                            ),
+                                          ),
+                                            TextFormField(
+                                            //     validator: (String value){
+                                            //   if(_groundByManualEnterName==true && (_weldGrinderManual == null ||_weldGrinderManual.contains('N/A'))){
+                                            //     return 'Provide Ground By';
+                                            //   }
+                                            // },
+                                              maxLength: 30,
+                                                controller: ctrlGroundByManual,
+                                                textAlign: TextAlign.center,
+                                                onChanged: (value) {
+                                                  _weldGroundByManual = value;
+                                                  print(_weldGroundByManual);
+                                                },
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins', fontSize: 1.84 * SizeConfig.heightMultiplier),
+                                                decoration: kTextFieldDecorationNoback.copyWith(
+                                                  hintText: '',contentPadding: EdgeInsets.symmetric(vertical: 1.5 * SizeConfig.heightMultiplier, horizontal: 20.0),)
+                                            ),
+
+                                          ],
+                                        ),
+                                      ),
+                                      Visibility(visible: !_groundByLeaveBlank,
+                                          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsets.only(bottom: 1.05 * SizeConfig.heightMultiplier, top: 2.63 * SizeConfig.heightMultiplier),
+                                                child: Text(
+                                                  'Licence Number',
+                                                  style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 1.7 * SizeConfig.heightMultiplier,
+                                                    color: const Color(0xffa1a1a1),
+                                                  ),
+                                                  textAlign: TextAlign.left,
+                                                ),
+                                              ),
+                                              TextFormField(maxLength: 5,readOnly: _groundByMe,
+                                                  validator: (String value){
+                                                    if(_groundByMe == false && _weldGroundByManualLicence == null){
+                                                      return 'Provide Licence Number';
+                                                    }
+                                                  },
+                                                  controller: ctrlGroundByManualLicence,
+                                                  textAlign: TextAlign.center,
+                                                  onChanged: (value) {
+                                                    _weldGroundByManualLicence = value;
+                                                  },
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins', fontSize: 1.84 * SizeConfig.heightMultiplier),
+                                                  decoration: kTextFieldDecorationNoback.copyWith(
+                                                    hintText: '',contentPadding: EdgeInsets.symmetric(vertical: 1.5 * SizeConfig.heightMultiplier, horizontal: 20.0),)
+                                              ),
+                                              Visibility(visible: _groundByManualEnterName,
+                                                  child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Padding(
+                                                        padding: EdgeInsets.only(bottom: 1.05 * SizeConfig.heightMultiplier, top: 2.63 * SizeConfig.heightMultiplier),
+                                                        child: Text(
+                                                          'Yearly Weld Count',
+                                                          style: TextStyle(
+                                                            fontFamily: 'Poppins',
+                                                            fontSize: 1.7 * SizeConfig.heightMultiplier,
+                                                            color: const Color(0xffa1a1a1),
+                                                          ),
+                                                          textAlign: TextAlign.left,
+                                                        ),
+                                                      ),
+                                                      TextFormField(maxLength: 5,
+                                                          // validator: (String value){
+                                                          //   if(_groundByMe == false && _weldGroundByManualLicence == null){
+                                                          //     return 'Provide Licence Number';
+                                                          //   }
+                                                          // },
+                                                          keyboardType: TextInputType.number,
+                                                          textAlign: TextAlign.center,
+                                                          onChanged: (value) {
+                                                            _weldGroundManualCount = value;
+                                                          },
+                                                          style: TextStyle(
+                                                              fontFamily: 'Poppins', fontSize: 1.84 * SizeConfig.heightMultiplier),
+                                                          decoration: kTextFieldDecorationNoback.copyWith(
+                                                            hintText: '',contentPadding: EdgeInsets.symmetric(vertical: 1.5 * SizeConfig.heightMultiplier, horizontal: 20.0),)
+                                                      ),
+
+                                                    ],
+                                                  ))
+                                            ],
+                                          ))
+                                     ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            width: 68.2 * SizeConfig.widthMultiplier,
+                          ),
+
+                          //Comments
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 8.0, top: 20),
+                            child: Text(
+                              'Comment',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 1.7 * SizeConfig.heightMultiplier,
+                                color: const Color(0xffa1a1a1),
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                          Container(
+                            child: TextFormField(maxLength: 100,maxLines: 5,
+                                textAlign: TextAlign.center,
+                                onChanged: (value) {
+                                  _comments = value;
+                                },
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 1.84 * SizeConfig.heightMultiplier),
+                                decoration: kTextFieldDecorationNoback.copyWith(
+                                  hintText: '',contentPadding: EdgeInsets.symmetric(vertical: 1.5 * SizeConfig.heightMultiplier, horizontal: 20.0),)
+                            ),
+                            width: 68.2 * SizeConfig.widthMultiplier,
+                          ),
+
                           SizedBox(
                             height: 2.6 * SizeConfig.heightMultiplier,
                           ),
@@ -1382,6 +1430,8 @@ class _NewQRWeldReturnState extends State<NewQRWeldReturn> {
                                       sharedPreferences.setStringList('unSyncQRWeldReturn', unSyncQRWeldReturn);
                                       print('New');
                                       print(unSyncQRWeldReturn.length);
+                                      qRLatestBatch = _weldBatchNumber;
+                                      sharedPreferences.setString('qRLatestBatch', _weldBatchNumber);
                                       await Flushbar(
                                         titleText: Text(
                                           'Success',

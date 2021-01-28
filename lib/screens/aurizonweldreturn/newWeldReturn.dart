@@ -349,6 +349,7 @@ class _NewWeldReturnState extends State<NewWeldReturn> {
                                   return 'Please provide kilometrage';
                                 }
                             },
+                                maxLength: 8,
                                 keyboardType: TextInputType.number,
                                 textAlign: TextAlign.center,
                                 onChanged: (value) {

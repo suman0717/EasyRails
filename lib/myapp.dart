@@ -51,6 +51,7 @@ class _MyAppState extends State<MyApp> {
       loggedinUserContractor = jsonDecode(sharedPreferences.get('userDataJson'))['ContractorBuinessName'];
       // aRTCLatestBatch = jsonDecode(sharedPreferences.get('userDataJson'))['ARTCLatestBatch'];
       aRTCLatestBatch = sharedPreferences.getString('aRTCLatestBatch');
+      qRLatestBatch = sharedPreferences.getString('qRLatestBatch');
       // aRTCLatestBatch is coming directly from SharedPreference because we are saving latest data everytime we create new ARTC record,
       // and we are not fetching latest arts everytime.
       KActiveRailOperator = jsonDecode(sharedPreferences.get('userDataJson'))['Weld_Return'];
